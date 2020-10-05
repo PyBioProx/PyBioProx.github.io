@@ -2,7 +2,7 @@
 
 PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in microscopy images.
 PyBioProx is provided as an extensible Python module and as a GUI that can be launched from the command line. Key to PyBioProx is the
-PD<sub>mean</sub> measurement which we describe in our [preprint].(url) 
+PD<sub>mean</sub> measurement which we describe in our [preprint](url) 
 
 # Header 1
 ## Header 2
