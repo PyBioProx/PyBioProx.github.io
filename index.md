@@ -1,15 +1,8 @@
-## Welcome to GitHub Pages
+# PyBioProx
 
-You can use the [editor on GitHub](https://github.com/PyBioProx/PyBioProx.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
+PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in microscopy images.
+PyBioProx is provided as an extensible Python module and as a GUI that can be launched from the command line. Key to PyBioProx is the
+PD<sub>mean</sub> measurement which we describe in our [preprint].link(preprintlink) 
 
 # Header 1
 ## Header 2
