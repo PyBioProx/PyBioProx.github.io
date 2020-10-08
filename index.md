@@ -4,7 +4,7 @@ PyBioProx is a simple tool built in Python to analyze the relative proximity bet
 PyBioProx is provided as an extensible Python module and as a GUI that can be launched from the command line. Key to PyBioProx is the
 PD<sub>mean</sub> measurement which we describe in our [preprint](url) 
 
-![2020-08-18-PyBioProx-Explanation](PyBioProx.github.io/2020-08-18-PyBioProx-Explanation.png)
+![](images/pybioprox-explanation.png)
 
 # Header 1
 ## Header 2
