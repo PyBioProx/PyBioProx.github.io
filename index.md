@@ -38,7 +38,7 @@ is replaced with your user location.
 Prompt and executing (press enter)
 ![](images/cdpybioprox-prompt.png)
 
-The command line should now read with the location of the folder
+- The command line should now read with the location of the folder
 ![](images/nowin-pybioprox-prompt.png)
 
 5. Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
@@ -46,7 +46,6 @@ PyBioProx requires to function
 ![](images/pipinstall-prompt.png)
 
 6. Launch the PyBioProx GUI using the following command `python run_gui.py`
-
 ![](images/run-gui-prompt.png)
 
 
