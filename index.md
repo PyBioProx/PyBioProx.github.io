@@ -1,10 +1,20 @@
-# PyBioProx
+# An Introduction to PyBioProx
 
-PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in microscopy images.
-PyBioProx is provided as an extensible Python module and as a GUI that can be launched from the command line. Key to PyBioProx is the
-PD<sub>mean</sub> measurement which we describe in our [preprint](url) 
+PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in 2D or 3D microscopy images. 
+For example, this can be used to analyse whether the distance between fluorescently labelled organelles or proteins (e.g. the distance
+between mitochondria and the nucleus) changes according to experimental parameters. PyBioProx generates perimeter distance (PD) measurments (defined [here](url))
+which represent the shortest distance between a perimeter pixel of an object in one fluorescent channel (e.g. Channel X) to the nearest fluorescent signal 
+in another channel (e.g Channel Y). Each object detected in Channel X may have thousands of perimeter pixels and therefore has
+perimeter distance (PD) measurements (as described ). As shown in the figure below, a PD measurment is 
+thousands of PD measurments. We show in our [preprint](url), that taking the mean of these measurements (PD<sub>mean</sub>) describes the position of the 
+object in Channel X relative to objects in Channel Y. Taking the maximum (Hausdorff Distance) and the minimum (PD<sub>min</sub>) PD
+measurement *can* also provide useful information, the PD<sub>mean</sub> measurement performed 
+most effectively in our [tests](url) and is our recommended statistic.
 
-![](images/pybioprox-explanation.png)
+![](images/pybioprox-explanation.png) 
+**Figure 1**  - An illustrative example in which a 3D (blue) object contains 12 perimeter voxels. The PD measurement for each perimeter voxel
+is represented within each box. The smallest PD measurment represents the PD<sub>min</sub>, the largest PD measurment represents
+the Hausdorff Distance, the mean PD measurement represents the PD<sub>mean</sub>
 
 # Header 1
 ## Header 2
