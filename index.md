@@ -44,6 +44,7 @@ PyBioProx requires to function
 ![](images/run-gui-prompt.png)
 
 - The following GUI will launch 
+
 ![](images/pydistgui.png)
 
 Once the GUI has been installed, it can be launched again by following steps 3, 4 and 6.
