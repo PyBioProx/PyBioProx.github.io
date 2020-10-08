@@ -1,14 +1,10 @@
 # An Introduction to PyBioProx
 
 PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in 2D or 3D microscopy images. 
-For example, this can be used to analyse whether the distance between fluorescently labelled organelles or proteins (e.g. the distance
-between mitochondria and the nucleus) changes according to experimental parameters. PyBioProx generates perimeter distance (PD) measurments (defined [here](url))
-which represent the shortest distance between a perimeter pixel of an object in one fluorescent channel (e.g. Channel X) to the nearest fluorescent signal 
-in another channel (e.g Channel Y). Each object detected in Channel X may have thousands of perimeter pixels and therefore has
-perimeter distance (PD) measurements (as described ). As shown in the figure below, a PD measurment is 
-thousands of PD measurments. We show in our [preprint](url), that taking the mean of these measurements (PD<sub>mean</sub>) describes the position of the 
-object in Channel X relative to objects in Channel Y. Taking the maximum (Hausdorff Distance) and the minimum (PD<sub>min</sub>) PD
-measurement *can* also provide useful information, the PD<sub>mean</sub> measurement performed 
+For example, to analyse whether the distance between fluorescently labelled organelles or proteins (e.g. the distance
+between mitochondria and the nucleus) changes according to experimental parameters. PyBioProx generates perimeter distance (PD) measurments (Figure 1).
+A PD measurement is the shortest distance between a perimeter pixel of an object in one fluorescent channel (e.g. Channel 1) to the nearest fluorescent signal 
+in another channel (e.g Channel 2). The method by which this is calculated is described in detail [here](preprinturl). Each object detected in Channel X may have thousands of perimeter pixels and therefore have thousands of perimeter distance (PD) measurements. We show in our [preprint](url), that taking the mean of these measurements (PD<sub>mean</sub>) describes the position of the object in Channel 1 relative to objects in Channel 2. Taking the maximum (Hausdorff Distance) and the minimum (PD<sub>min</sub>) PD measurement *can* also provide useful information, however, the PD<sub>mean</sub> measurement performed 
 most effectively in our [tests](url) and therefore is our recommended statistic.
 
 PyBioProx is provided as an extensible Python module or as a GUI that can be run from the command line.
@@ -19,23 +15,22 @@ perimeter voexl show the PD measurement for each voxel relative to the red objec
 The smallest PD measurment represents the PD<sub>min</sub>, the largest PD measurment represents
 the Hausdorff Distance, the mean PD measurement represents the PD<sub>mean</sub>. 
 
-# Downloading and launching the GUI
+# Installing the GUI
 
 The following steps describe how to install the PyBioprox GUI
 
 1. The PyBioProx GUI requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
 of Python for this. While more light-weight versions of Python can also be [installed](https://www.python.org/downloads/), we have had fewer issues with
-running PyBioProx when using the Anaconda installation. If you choose to not use the Anaconda installation, ensure that Python is added to
+installing the PyBioProx GUI when using Anaconda. If you choose to not use the Anaconda installation, ensure that Python is added to
 the [PATH](https://datatofish.com/add-python-to-windows-path/). 
 
-2. Click the 'Download Zip File' button on the left hand of this page, save to the Desktop and Extract to a new folder on the Desktop named 'PyBioProx'
+2. Once Anaconda/Python is installed, click the 'Download Zip File' button on the left hand of this page, save the zip file to the desktop and Extract to a new folder on the desktop. Rename this folder 'PyBioProx'.
 
-3. Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something like the below where `(base) C:\Users\jdeed>` 
-is replaced with your user location. 
+3. Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something similar to the image below where `(base) C:\Users\jdeed>` 
+is replaced with your username. 
 ![](images/blank-prompt.png)
 
-4. Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd ` then dragging the PyBioProx folder into Anaconda
-Prompt and executing (press enter)
+4. Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd` followed by a space, followed by the address of the PyBioProx folder (dragging the PyBioProx folder into Anaconda Prompt will automatically copy the folders address into Anaconda Prompt) and executing (enter).
 ![](images/cdpybioprox-prompt.png)
 
 - The command line should now read with the location of the folder
@@ -48,28 +43,8 @@ PyBioProx requires to function
 6. Launch the PyBioProx GUI using the following command `python run_gui.py`
 ![](images/run-gui-prompt.png)
 
+- The following GUI will launch 
+![](images/pydistgui.png)
 
+Once the GUI has been installed, it can be launched again by following steps 3, 4 and 6.
 
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/PyBioProx/PyBioProx.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
