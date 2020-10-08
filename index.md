@@ -32,8 +32,7 @@ is replaced with your username.
 
 4. Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd` followed by a space, followed by the address of the PyBioProx folder (dragging the PyBioProx folder into Anaconda Prompt will automatically copy the folders address into Anaconda Prompt) and executing (enter).
 ![](images/cdpybioprox-prompt.png)
-
-- The command line should now read with the location of the folder
+>>The command line should now read with the location of the folder                                                                                                
 ![](images/nowin-pybioprox-prompt.png)
 
 5. Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
@@ -42,8 +41,7 @@ PyBioProx requires to function
 
 6. Launch the PyBioProx GUI using the following command `python run_gui.py`
 ![](images/run-gui-prompt.png)
-
-- The following GUI will launch 
+>>The following GUI will launch
 
 ![](images/pydistgui.png)
 
