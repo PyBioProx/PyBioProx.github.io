@@ -43,7 +43,6 @@ The command line should now read with the location of the folder
 
 5. Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
 PyBioProx requires to function
-
 ![](images/pipinstall-prompt.png)
 
 6. Launch the PyBioProx GUI using the following command `python run_gui.py`
