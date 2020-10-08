@@ -21,16 +21,34 @@ the Hausdorff Distance, the mean PD measurement represents the PD<sub>mean</sub>
 
 # Downloading and launching the GUI
 
-The following steps describe how to install and launch the PyBioprox GUI
+The following steps describe how to install the PyBioprox GUI
 
-1. The PyBioProx GUI requires [Python](https://www.python.org/downloads/) to be installed. Note, that in order to run PyBioProx from the command line 
-Python must be added to the [PATH](https://datatofish.com/add-python-to-windows-path/), this can be done during 
-installation. Alternatively, the [Anaconda](https://www.anaconda.com/products/individual) distribution can be installed, allowing PyBioProx to be launched from Anaconda Prompt. 
+1. The PyBioProx GUI requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
+of Python for this. While more light-weight versions of Python can also be [installed](https://www.python.org/downloads/), we have had fewer issues with
+running PyBioProx when using the Anaconda installation. If you choose to not use the Anaconda installation, ensure that Python is added to
+the [PATH](https://datatofish.com/add-python-to-windows-path/). 
 
-2. Click the 'Download Zip File' button on the left hand of this page, save to the Desktop and Extract
+2. Click the 'Download Zip File' button on the left hand of this page, save to the Desktop and Extract to a new folder on the Desktop named 'PyBioProx'
 
-3. 
+3. Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something like the below where `(base) C:\Users\jdeed>` 
+is replaced with your user location. 
+![](images/blank-prompt.png)
 
+4. Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd ` then dragging the PyBioProx folder into Anaconda
+Prompt and executing (press enter)
+![](images/cdpybioprox-prompt.png)
+
+The command line should now read with the location of the folder
+![](images/nowin-pybioprox-prompt.png)
+
+5. Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
+PyBioProx requires to function
+
+![](images/pipinstall-prompt.png)
+
+6. Launch the PyBioProx GUI using the following command `python run_gui.py`
+
+![](images/run-gui-prompt.png)
 
 
 
