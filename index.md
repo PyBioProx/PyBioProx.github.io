@@ -24,7 +24,7 @@ of Python for this. While more light-weight versions of Python can also be [inst
 installing the PyBioProx GUI when using Anaconda. If you choose to not use the Anaconda installation, ensure that Python is added to
 the [PATH](https://datatofish.com/add-python-to-windows-path/). 
 
-2. Once Anaconda/Python is installed, click the 'Download Zip File' button on the left hand of this page, save the zip file to the desktop and Extract to a new folder on the desktop. Rename this folder 'PyBioProx'.
+2. Once Anaconda/Python is installed, click the 'Download Zip File' button on the left hand of this page, unzip the file and move the unzipped folder (named PyBioProx Master) to the desktop (or desired location). 
 
 3. Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something similar to the image below where `(base) C:\Users\jdeed>` 
 is replaced with your username. 
@@ -46,4 +46,34 @@ PyBioProx requires to function
 ![](images/pydistgui.png)
 
 Once the GUI has been installed, it can be launched again by following steps 3, 4 and 6.
+
+# GUI tutorial
+
+We have provided two images from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/), located within the
+PyBioProx master download folder under the subfolder name 'Test Images'. CBS provides images with known (ground-truth) levels of 
+colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 and 90 %. Below is a 
+follow-along tutorial using these images. 
+
+1. Open up the PyBioProx GUI by following steps 3, 4 and 6 [here](#installing-the-gui).
+
+2. Select the input folder containing the CBS .tif images
+
+3. Select an output folder where you want the results to be saved.
+
+4. In the test CBS images, Channel 1 contains 'Red' objects, 'Channel 2' contains nothing and 'Channel 3' contains 'blue objects'. 
+To measure the PD<sub>mean</sub> distances of red objects to blue objects, select 'Measure from channel 1 to channel 3' 
+using the drop down menus. 
+
+5. These sample images have not previously been binarised. Therefore, a thresholding algorithm 
+must be used to identify regions with and without fluorescent signal. Currently two thresholding
+algorthims are offered. Both algorithms work reasonably well on these images. Select 'otsu'5. Press 'Preview'. This will select the first .tif file in the folder, binarise the image using
+the selected thresholding algorith and detect objects in 
+
+4. Click 'preview'
+  4a. The preview button 
+
+## Image requirements
+
+- Images must be saved as the .tif format
+- Images must be [(multichannel) composites](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/colors/colors.html)
 
