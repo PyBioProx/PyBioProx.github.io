@@ -43,9 +43,10 @@ PyBioProx requires to function
 ![](images/run-gui-prompt.png)
 >>The following GUI will launch
 
-![](images/pydistgui.png)
+![](images/pybioproxgui.png)
 
-Once the GUI has been installed, it can be launched again by following steps 3, 4 and 6.
+Once the GUI has been installed, it can be launched again by navigating to the PyBioProx folder in Anaconda Prompt (step 4) and 
+launching the GUI (step 6). 
 
 # GUI tutorial
 
