@@ -55,7 +55,7 @@ PyBioProx master download folder under the subfolder name 'Test Images'. CBS pro
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 and 90 %. Below is a 
 follow-along tutorial using these images. 
 
-1. Open up the PyBioProx GUI by following steps 3, 4 and 6 [here](#installing-the-gui).
+1. Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
 
 2. Select the input folder containing the CBS .tif images
 
@@ -65,16 +65,31 @@ follow-along tutorial using these images.
 To measure the PD<sub>mean</sub> distances of red objects to blue objects, select 'Measure from channel 1 to channel 3' 
 using the drop down menus. 
 
-5. These sample images have not previously been binarised. Therefore, a thresholding algorithm 
-must be used to identify regions with and without fluorescent signal. Currently two thresholding
-algorthims are offered. Both algorithms work reasonably well on these images. Select 'otsu'5. Press 'Preview'. This will select the first .tif file in the folder, binarise the image using
-the selected thresholding algorith and detect objects in 
+5. PyBioProx currently only provides a limited number of preprocessing operations. A gaussian filter
+(sigma 3) can be performed on images if required by selecting from the 'Filtering' dropdown menu. If any other preprocessing
+is required, this should be performed in ImageJ before loading the images into the PyBioProx GUI. The CBS 
+test images do not require preprocessing, so leave the 'Filtering' parameter blank. 
 
-4. Click 'preview'
-  4a. The preview button 
+6. These sample images have not previously been binarised. Therefore, a thresholding algorithm 
+must be used to identify regions with and without fluorescent signal. Currently two thresholding
+algorthims are offered. Both algorithms work reasonably well on these images. Select the 'Otsu' 
+thresholding algorithm. 
+
+The settings should now look like the below: 
+
+![](images/pybioproxgui-test-parameters.png)
+
+7. Press 'Preview'. This will select the first .tif file in the folder, perform the filtering
+operation, binarise the image using the selected thresholding algorith and detect objects. Two images 
+will then appear as shown below. 
+
+
+
+
 
 ## Image requirements
 
 - Images must be saved as the .tif format
-- Images must be [(multichannel) composites](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/colors/colors.html)
+- Images must be [composites (multichannel images)](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/colors/colors.html)
+
 
