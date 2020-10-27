@@ -1,3 +1,6 @@
+* TOC
+{:toc}
+
 # An Introduction to PyBioProx
 
 PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in 2D or 3D microscopy images. 
