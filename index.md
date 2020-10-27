@@ -83,9 +83,20 @@ The settings should now look like the below:
 operation, binarise the image using the selected thresholding algorith and detect objects. Two images 
 will then appear as shown below. 
 
+![](images/masks.png)
 
+- These images show an overlay of the perimeter of the objects that PyBioProx has 
+detected ontop of the original image. Mask1 = overlay of 'channel to be measured from', 
+Mask2 = overlay of 'channel to be measured to'
 
+- If the image is a Z-stack, the preview function will show object detection on the middle slice of the Z-stack. 
 
+- **It is essential to always check that the object-detection is appropriate**. I.e. is PyBioProx detecting 
+objects of the size and shape that you expect. For tips about how to optimise preprocessing
+for better object detection click [here](#preprocessing-tips). 
+
+- To try different PyBioProx parameters and see the effect on object detection, save and close the preview, change the 
+parameters and press 'Preview' again.
 
 ## Image requirements
 
