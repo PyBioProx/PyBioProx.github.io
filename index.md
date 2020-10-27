@@ -92,11 +92,24 @@ Mask2 = overlay of 'channel to be measured to'
 - If the image is a Z-stack, the preview function will show object detection on the middle slice of the Z-stack. 
 
 - **It is essential to always check that the object-detection is appropriate**. I.e. is PyBioProx detecting 
-objects of the size and shape that you expect. For tips about how to optimise preprocessing
-for better object detection click [here](#preprocessing-tips). 
+objects of the size and shape that you expect. If PyBioProx is not correctly identifying objects, this suggests
+that either the thresholding algorithm or preprossessing steps that have been used are not optimal.
+For tips about how to optimise preprocessing for better object detection click [here](#preprocessing-tips). 
 
-- To try different PyBioProx parameters and see the effect on object detection, save and close the preview, change the 
+- To try different PyBioProx parameters and see the effect on object detection, save and close the preview 'mask' images, change the 
 parameters and press 'Preview' again.
+
+8. Once you are happy with the object detection, click 'Run'. 
+
+9. PyBioProx will then process all the .tif images in the folder. 
+
+- It will create .png images showing object detection and save them to the input folder.
+- It will create two .csv files named 'distance_table_your-filename' and 'stats_table_your_filename'. 
+- The 'distance tables' show all PD measurements for each detected object. PD measurements from the same object
+appear on the same row. 
+- The 'stats tables' are more likely to be useful. They provide the PD<sub>mean</sub>, PD<sub>min</sub> and Hausdorff Distance for each object.
+- Averaging the PD<sub>mean</sub> values from the '0 % and 90 % colocalisation' test images then identifies the 
+average proximity of red objects to blue objects in each image. 
 
 ## Image requirements
 
