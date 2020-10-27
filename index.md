@@ -22,27 +22,27 @@ the Hausdorff Distance, the mean PD measurement represents the PD<sub>mean</sub>
 
 The following steps describe how to install the PyBioprox GUI
 
-1. The PyBioProx GUI requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
+**1** The PyBioProx GUI requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
 of Python for this. While more light-weight versions of Python can also be [installed](https://www.python.org/downloads/), we have had fewer issues with
 installing the PyBioProx GUI when using Anaconda. If you choose to not use the Anaconda installation, ensure that Python is added to
 the [PATH](https://datatofish.com/add-python-to-windows-path/). 
 
-2. Once Anaconda/Python is installed, click the 'Download Zip File' button on the left hand of this page, unzip the file and move the unzipped folder (named PyBioProx Master) to the desktop (or desired location). 
+**2** Once Anaconda/Python is installed, click the 'Download Zip File' button on the left hand of this page, unzip the file and move the unzipped folder (named PyBioProx Master) to the desktop (or desired location). 
 
-3. Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something similar to the image below where `(base) C:\Users\jdeed>` 
+**3** Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something similar to the image below where `(base) C:\Users\jdeed>` 
 is replaced with your username. 
 ![](images/blank-prompt.png)
 
-4. Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd` followed by a space, followed by the address of the PyBioProx folder (dragging the PyBioProx folder into Anaconda Prompt will automatically copy the folders address into Anaconda Prompt) and executing (enter).
+**4** Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd` followed by a space, followed by the address of the PyBioProx folder (dragging the PyBioProx folder into Anaconda Prompt will automatically copy the folders address into Anaconda Prompt) and executing (enter).
 ![](images/cdpybioprox-prompt.png)
 >>The command line should now read with the location of the folder                                                                                                
 ![](images/nowin-pybioprox-prompt.png)
 
-5. Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
+**5** Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
 PyBioProx requires to function
 ![](images/pipinstall-prompt.png)
 
-6. Launch the PyBioProx GUI using the following command `python run_gui.py`
+**6** Launch the PyBioProx GUI using the following command `python run_gui.py`
 ![](images/run-gui-prompt.png)
 >>The following GUI will launch
 
@@ -58,22 +58,22 @@ PyBioProx master download folder under the subfolder name 'Test Images'. CBS pro
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 and 90 %. Below is a 
 follow-along tutorial using these images. 
 
-1. Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
+**1** Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
 
-2. Select the input folder containing the CBS .tif images
+**2** Select the input folder containing the CBS .tif images
 
-3. Select an output folder where you want the results to be saved.
+**3** Select an output folder where you want the results to be saved.
 
-4. In the test CBS images, Channel 1 contains 'Red' objects, 'Channel 2' contains nothing and 'Channel 3' contains 'blue objects'. 
+**4** In the test CBS images, Channel 1 contains 'Red' objects, 'Channel 2' contains nothing and 'Channel 3' contains 'blue objects'. 
 To measure the PD<sub>mean</sub> distances of red objects to blue objects, select 'Measure from channel 1 to channel 3' 
 using the drop down menus. 
 
-5. PyBioProx currently only provides a limited number of preprocessing operations. A gaussian filter
+**5** PyBioProx currently only provides a limited number of preprocessing operations. A gaussian filter
 (sigma 3) can be performed on images if required by selecting from the 'Filtering' dropdown menu. If any other preprocessing
 is required, this should be performed in ImageJ before loading the images into the PyBioProx GUI. The CBS 
 test images do not require preprocessing, so leave the 'Filtering' parameter blank. 
 
-6. These sample images have not previously been binarised. Therefore, a thresholding algorithm 
+**6** These sample images have not previously been binarised. Therefore, a thresholding algorithm 
 must be used to identify regions with and without fluorescent signal. Currently two thresholding
 algorthims are offered. Both algorithms work reasonably well on these images. Select the 'Otsu' 
 thresholding algorithm. 
@@ -102,9 +102,9 @@ For tips about how to optimise preprocessing for better object detection click [
 - To try different PyBioProx parameters and see the effect on object detection, save and close the preview 'mask' images, change the 
 parameters and press 'Preview' again.
 
-8. Once you are happy with the object detection, click 'Run'. 
+**8** Once you are happy with the object detection, click 'Run'. 
 
-9. PyBioProx will then process all the .tif images in the folder. 
+**9** PyBioProx will then process all the .tif images in the folder. 
 
 - It will create .png images showing object detection and save them to the input folder.
 - It will create two .csv files named 'distance_table_your-filename' and 'stats_table_your_filename'. 
@@ -114,7 +114,7 @@ appear on the same row.
 - Averaging the PD<sub>mean</sub> values from the '0 % and 90 % colocalisation' test images then identifies the 
 average proximity of red objects to blue objects in each image. 
 
-## Image requirements
+# Image requirements
 
 - Images must be saved as the .tif format
 - Images must be [composites (multichannel images)](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/colors/colors.html)
