@@ -97,7 +97,7 @@ Mask2 = overlay of 'channel to be measured to'
 - **It is essential to always check that the object-detection is appropriate**. I.e. is PyBioProx detecting 
 objects of the size and shape that you expect. If PyBioProx is not correctly identifying objects, this suggests
 that either the thresholding algorithm or preprossessing steps that have been used are not optimal.
-For tips about how to optimise preprocessing for better object detection click [here](#preprocessing-tips). 
+For tips about how to optimise preprocessing for better object detection click [here](#preprocessing-tips-for-appropriate-object-detection). 
 
 - To try different PyBioProx parameters and see the effect on object detection, save and close the preview 'mask' images, change the 
 parameters and press 'Preview' again.
@@ -106,17 +106,46 @@ parameters and press 'Preview' again.
 
 **9** PyBioProx will then process all the .tif images in the folder. 
 
-- It will create .png images showing object detection and save them to the input folder.
-- It will create two .csv files named 'distance_table_your-filename' and 'stats_table_your_filename'. 
-- The 'distance tables' show all PD measurements for each detected object. PD measurements from the same object
+- PyBioProx will create two .png image files (for mask 1 and 2) showing object detection (middle slice if analysing a Z-stack image) .png files will be saved to the input folder.
+- For each image, PyBioProx will create two .csv files named 'distance_table_your-filename' and 'stats_table_your_filename'. 
+  - The 'distance_table' files show all PD measurements for each detected object. PD measurements from the same object
 appear on the same row. 
-- The 'stats tables' are more likely to be useful. They provide the PD<sub>mean</sub>, PD<sub>min</sub> and Hausdorff Distance for each object.
+  - The 'stats_table' files are generally more useful. They provide the PD<sub>mean</sub>, PD<sub>min</sub> and Hausdorff Distance for each object in the analysed image.
 - Averaging the PD<sub>mean</sub> values from the '0 % and 90 % colocalisation' test images then identifies the 
 average proximity of red objects to blue objects in each image. 
 
+# Installing the Python Module
+
+**JEREMY TO CHECK THIS** The PyBioProx python module is distrubuted on PyPI and can therefore be installed using the following commmands: `python pip install PyBioProx` (command line), or `conda install pybioprox` (anaconda prompt). 
+
+# Using the PyBioProx Python Module
+
+**JEREMY TO WRITE THIS**
+
 # Image requirements
 
-- Images must be saved as the .tif format
+- PyBioProx currently only functions with images saved in the .tif format, more information on file types can be found [here](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/files/files.html). 
+- Batch conversion of other file types to .tiffs
 - Images must be [composites (multichannel images)](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/colors/colors.html)
+
+# Preprocessing Tips for Appropriate Object Detection
+
+- PyBioProx detects objects first by [thresholding the image](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/thresholding/thresholding.html), to create binary images in which pixels are either 'on' (pixel value = 1) or 'off' (pixel value = 0). Connected 'on' pixels are then 'labelled' as objects using the `scipy.ndi.label` [module](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html). 
+
+- **Without appropriate object-detection, PyBioProx will not produce meaningful data!** For this reason, when analysing large datasets, it is essential to optimise preprocessing and thresholding steps on a representative sample of images. It is also essential to check through the 'mask.png' images produced (step 7 in [GUI tutorial section](#gui-tutorial)) for all analysed images. 
+
+- PyBioProx allows for images to be thresholded using either 'Otsu' or 'Li' thresholding algorthims. Alternatively, images can be thresholded in another program (e.g. ImageJ) and the resulting binary image analysed in PyBioProx (thresholding program = 'None').
+
+- Different thresholding algorithms will be appropriate for different images, try opening your images in ImageJ and trying a few out, if you find one that works well (but isn't provided in PyBioProx), then one option is to [batch](https://imagej.net/Batch_Processing) threshold your ImageJ and then process these binary images in PyBioProx.
+
+**If no thresholding algorithm appropriately identifies positive and negative fluorescent signal, this indicates that preprocessing is required**
+
+- If small regions of 'noise' are being erroneously identified as objects by PyBioProx, filtering operations such as a  [gaussian filter](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/filters/filters.html) may help to 'smooth out' this noise. A gaussian filter with a 3px kernal can be applied in PyBioProx. This is currently the only preprocessing operation offered in PyBioProx,other filtering operations must be applied to images prior to analysis in PyBioProx. 
+
+- If object detection is not descrete enough, i.e. the objects detected appear to be larger than they *should* be, then preprocessing operations such as an [unsharp mask](https://imagej.nih.gov/ij/developer/api/ij/plugin/filter/UnsharpMask.html#:~:text=Unsharp%20masking%20subtracts%20a%20blurred,and%20thus%20sharpens%20the%20image) (employed in our [preprint](link)), or a [top-hat filter](https://imagej.net/MorphoLibJ), can be employed to enhance the most salient features of the image. 
+
+
+ 
+
 
 
