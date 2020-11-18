@@ -82,7 +82,7 @@ The settings should now look like the below:
 
 ![](images/pybioproxgui-test-parameters.png)
 
-7. Press 'Preview'. This will select the first .tif file in the folder, perform the filtering
+**7** Press 'Preview'. This will select the first .tif file in the folder, perform the filtering
 operation, binarise the image using the selected thresholding algorith and detect objects. Two images 
 will then appear as shown below. 
 
@@ -130,13 +130,13 @@ average proximity of red objects to blue objects in each image.
 
 # Preprocessing Tips for Appropriate Object Detection
 
-- PyBioProx detects objects first by [thresholding the image](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/thresholding/thresholding.html), to create binary images in which pixels are either 'on' (pixel value = 1) or 'off' (pixel value = 0). Connected 'on' pixels are then 'labelled' as objects using the `scipy.ndi.label` [module](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html). 
-
 - **Without appropriate object-detection, PyBioProx will not produce meaningful data!** For this reason, when analysing large datasets, it is essential to optimise preprocessing and thresholding steps on a representative sample of images. It is also essential to check through the 'mask.png' images produced (step 7 in [GUI tutorial section](#gui-tutorial)) for all analysed images. 
+
+- PyBioProx detects objects first by [thresholding the image](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/thresholding/thresholding.html), to create binary images in which pixels are either 'on' (pixel value = 1) or 'off' (pixel value = 0). Connected 'on' pixels are then 'labelled' as objects using the `scipy.ndi.label` [module](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html). 
 
 - PyBioProx allows for images to be thresholded using either 'Otsu' or 'Li' thresholding algorthims. Alternatively, images can be thresholded in another program (e.g. ImageJ) and the resulting binary image analysed in PyBioProx (thresholding program = 'None').
 
-- Different thresholding algorithms will be appropriate for different images, try opening your images in ImageJ and trying a few out, if you find one that works well (but isn't provided in PyBioProx), then one option is to [batch](https://imagej.net/Batch_Processing) threshold your ImageJ and then process these binary images in PyBioProx.
+- Different thresholding algorithms will be appropriate for different images, try opening your images in ImageJ and trying a few out, if you find one that works well (but isn't provided in PyBioProx), then one option is to [batch](https://imagej.net/Batch_Processing) threshold your images in ImageJ and then process the resulting binary images in PyBioProx.
 
 **If no thresholding algorithm appropriately identifies positive and negative fluorescent signal, this indicates that preprocessing is required**
 
