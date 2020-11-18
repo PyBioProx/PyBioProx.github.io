@@ -42,7 +42,7 @@ is replaced with your username.
 PyBioProx requires to function
 ![](images/pipinstall-prompt.png)
 
-**6**: Launch the PyBioProx GUI using the following command `python run_gui.py`
+**6**: Launch the PyBioProx GUI using the following command `python pybioprox_gui.py`
 ![](images/run-gui-prompt.png)
 >>The following GUI will launch
 
@@ -55,12 +55,11 @@ launching the GUI (step 6).
 
 We have provided two images from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/), located within the
 PyBioProx master download folder under the subfolder name 'Test Images'. CBS provides images with known (ground-truth) levels of 
-colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 and 90 %. Below is a 
-follow-along tutorial using these images. 
+colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 (CBS001RBM__0_percent_colocalisation_.tif) and 90 % (CBS0010RBM__90_percent_colocalisation_.tif). Below is a follow-along tutorial using these images. 
 
 **1**: Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
 
-**2**: Select the input folder containing the CBS .tif images
+**2**: Select the 'Test Images' folder as the input folder 
 
 **3**: Select an output folder where you want the results to be saved.
 
@@ -78,11 +77,19 @@ must be used to identify regions with and without fluorescent signal. Currently 
 algorthims are offered. Both algorithms work reasonably well on these images. Select the 'Otsu' 
 thresholding algorithm. 
 
+**7**: PyBioProx makes distance-based measurements. These can either be in units of pixels/voxels, or in real-world measurements
+e.g. micrometeres, if the dimensions, of the pixels or voxels are known. 'Scale x-y' describes the size of the pixel in the 
+X and Y axes while 'Scale z' provides the distance between each Z-slice (often referred to as 'step size'). 
+NB. an easy way to identify pixel/voxel dimensions is to open images in Fiji and press 'i'. 
+
+The CBS sample images that we are using in this tutorial are 2D with no accompanying distance metadata. 
+As such, we will leave the units as pixels and the Scale as 1.
+
 The settings should now look like the below: 
 
 ![](images/pybioproxgui-test-parameters.png)
 
-**7** Press 'Preview'. This will select the first .tif file in the folder, perform the filtering
+**8**: Press 'Preview'. This will select the first .tif file in the folder, perform the filtering
 operation, binarise the image using the selected thresholding algorith and detect objects. Two images 
 will then appear as shown below. 
 
@@ -102,21 +109,25 @@ For tips about how to optimise preprocessing for better object detection click [
 - To try different PyBioProx parameters and see the effect on object detection, save and close the preview 'mask' images, change the 
 parameters and press 'Preview' again.
 
-**8** Once you are happy with the object detection, click 'Run'. 
+**9**: Once you are happy with the object detection, click 'Run'. 
 
-**9** PyBioProx will then process all the .tif images in the folder. 
+**10**: PyBioProx will then process all the .tif images in the folder. 
 
 - PyBioProx will create two .png image files (for mask 1 and 2) showing object detection (middle slice if analysing a Z-stack image) .png files will be saved to the input folder.
 - For each image, PyBioProx will create two .csv files named 'distance_table_your-filename' and 'stats_table_your_filename'. 
-  - The 'distance_table' files show all PD measurements for each detected object. PD measurements from the same object
+- The 'distance_table' files show all PD measurements for each detected object. PD measurements from the same object
 appear on the same row. 
-  - The 'stats_table' files are generally more useful. They provide the PD<sub>mean</sub>, PD<sub>min</sub> and Hausdorff Distance for each object in the analysed image.
-- Averaging the PD<sub>mean</sub> values from the '0 % and 90 % colocalisation' test images then identifies the 
-average proximity of red objects to blue objects in each image. 
+- The 'stats_table' files are generally more useful. They provide the PD<sub>mean</sub>, PD<sub>min</sub> and Hausdorff Distance for each object in the analysed image.
+PD measurements from the same object appear on the same row. 
+- Averaging the PD<sub>mean</sub> values then identifies the 
+average proximity of red objects to blue objects in each image. Using the parameters in this example:
+  - The average red object in the 0 % CBS image has a PD<sub>mean</sub> proximity to blue objects of 3.56 pixels.
+  - The average red object in the 90 % CBS image has a PD<sub>mean</sub> proximity to blue objects of 0.64 pixels. 
+
 
 # Installing the Python Module
 
-**JEREMY TO CHECK THIS** The PyBioProx python module is distrubuted on PyPI and can therefore be installed using the following commmands: `python pip install PyBioProx` (command line), or `conda install pybioprox` (anaconda prompt). 
+**JEREMY TO CHECK THIS** The PyBioProx python module is distrubuted on PyPI and can therefore be installed using the following commmands: `python pip install pybioprox` (command line), or `conda install pybioprox` (anaconda prompt). 
 
 # Using the PyBioProx Python Module
 
@@ -138,9 +149,9 @@ average proximity of red objects to blue objects in each image.
 
 - Different thresholding algorithms will be appropriate for different images, try opening your images in ImageJ and trying a few out, if you find one that works well (but isn't provided in PyBioProx), then one option is to [batch](https://imagej.net/Batch_Processing) threshold your images in ImageJ and then process the resulting binary images in PyBioProx.
 
-**If no thresholding algorithm appropriately identifies positive and negative fluorescent signal, this indicates that preprocessing is required**
+- If no thresholding algorithm appropriately identifies positive and negative fluorescent signal, this indicates that preprocessing is required
 
-- If small regions of 'noise' are being erroneously identified as objects by PyBioProx, filtering operations such as a  [gaussian filter](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/filters/filters.html) may help to 'smooth out' this noise. A gaussian filter with a 3px kernal can be applied in PyBioProx. This is currently the only preprocessing operation offered in PyBioProx,other filtering operations must be applied to images prior to analysis in PyBioProx. 
+- If small regions of 'noise' are being erroneously identified as objects by PyBioProx, filtering operations such as a  [gaussian filter](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/filters/filters.html) may help to 'smooth out' this noise. A gaussian filter with a 3px kernal can be applied in PyBioProx. This is currently the only preprocessing operation offered in PyBioProx, other filtering operations must be applied to images prior to analysis in PyBioProx. 
 
 - If object detection is not descrete enough, i.e. the objects detected appear to be larger than they *should* be, then preprocessing operations such as an [unsharp mask](https://imagej.nih.gov/ij/developer/api/ij/plugin/filter/UnsharpMask.html#:~:text=Unsharp%20masking%20subtracts%20a%20blurred,and%20thus%20sharpens%20the%20image) (employed in our [preprint](link)), or a [top-hat filter](https://imagej.net/MorphoLibJ), can be employed to enhance the most salient features of the image. 
 
