@@ -64,12 +64,10 @@ The GUI can then be launched by typing `pybioprox_gui` follwed by `Enter`. The f
 
 ![](images/pybioproxgui.png)
 
-
-
-# Getting started (GUI)
+# Getting started guide (GUI)
 
 We have provided two images sourced from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/) that can be 
-downloaded by clicking this link. CBS provides images with known (ground-truth) levels of 
+downloaded by clicking this ![link](images/cbs-images.zip) to follow along with this guide. CBS provides images with known (ground-truth) levels of 
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 (CBS001RBM__0_percent_colocalisation_.tif) and 90 % (CBS0010RBM__90_percent_colocalisation_.tif). Below is a follow-along tutorial using these images. 
 
 **1**: Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
