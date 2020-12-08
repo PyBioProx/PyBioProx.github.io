@@ -3,14 +3,16 @@
 
 # An Introduction to PyBioProx
 
-PyBioProx is a simple tool built in Python to analyze the relative proximity between fluorescent biomarkers in 2D or 3D microscopy images. 
+PyBioProx is a simple tool built in Python that analyses the relative proximity of fluorescent biomarkers in 2D or 3D microscopy images. 
 For example, to analyse whether the distance between fluorescently labelled organelles or proteins (e.g. the distance
 between mitochondria and the nucleus) changes according to experimental parameters. PyBioProx generates perimeter distance (PD) measurments (Figure 1).
 A PD measurement is the shortest distance between a perimeter pixel of an object in one fluorescent channel (e.g. Channel 1) to the nearest fluorescent signal 
-in another channel (e.g Channel 2). The method by which this is calculated is described in detail [here](preprinturl). Each object detected in Channel X may have thousands of perimeter pixels and therefore have thousands of perimeter distance (PD) measurements. We show in our [preprint](url), that taking the mean of these measurements (PD<sub>mean</sub>) describes the position of the object in Channel 1 relative to objects in Channel 2. Taking the maximum (Hausdorff Distance) and the minimum (PD<sub>min</sub>) PD measurement *can* also provide useful information, however, the PD<sub>mean</sub> measurement performed 
-most effectively in our [tests](url) and therefore is our recommended statistic.
+in another channel (e.g Channel 2). The mean of these measurements (PD<sub>mean</sub>) describes the proximity of the object in channel 1
+to the fluorescent signal in channel 2. Taking the maximum (Hausdorff Distance) 
+and the minimum (PD<sub>min</sub>) PD measurement *can* also provide useful information, 
+however, the PD<sub>mean</sub> measurement performed most effectively in our [tests](url) and therefore is our recommended statistic.
 
-PyBioProx is provided as an extensible Python module or as a GUI that can be run from the command line.
+PyBioProx is provided as an extensible Python module or as a GUI that can be run from the command line. 
 
 ![](images/pybioprox-explanation.png) 
 **Figure 1**  - An illustrative example in which a 3D (blue) object contains 12 perimeter voxels. The numbers within each
@@ -18,43 +20,56 @@ perimeter voexl show the PD measurement for each voxel relative to the red objec
 The smallest PD measurment represents the PD<sub>min</sub>, the largest PD measurment represents
 the Hausdorff Distance, the mean PD measurement represents the PD<sub>mean</sub>. 
 
-# Installing the GUI
+# Installing and launching PyBioProx (Experienced Python Users)
 
-The following steps describe how to install the PyBioprox GUI
+Both the PyBioProx python module and GUI are distributed on [PyPI](https://pypi.org/project/pybioprox/).
 
-**1**: The PyBioProx GUI requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
-of Python for this. While more light-weight versions of Python can also be [installed](https://www.python.org/downloads/), we have had fewer issues with
-installing the PyBioProx GUI when using Anaconda. If you choose to not use the Anaconda installation, ensure that Python is added to
-the [PATH](https://datatofish.com/add-python-to-windows-path/). 
+To install the Python module, you can use pip as follows: 
 
-**2**: Once Anaconda/Python is installed, click the 'Download Zip File' button on the left hand of this page, unzip the file and move the unzipped folder (named PyBioProx Master) to the desktop (or desired location). 
+`pip install pybioprox` 
 
-**3**: Open Anaconda Prompt (or 'Command Prompt' if not using Anaconda), you will see something similar to the image below where `(base) C:\Users\jdeed>` 
-is replaced with your username. 
+If you wish to install the optional graphical user interface (GUI) script, this may 
+be done by specifying the `gui` optional extra:
+
+`pip install pybioprox[gui]`
+
+Once installed, the module can be invoked from the command line using: 
+
+`python -m pybioprox <path_to_folder>
+
+to run the analysis on all data files at the location `path_to_folder` 
+
+If you have installed the GUI component or already have the required gui libraries, then you can 
+also run 
+
+`pybioprox_gui`
+
+directly from the command line. 
+
+# Installing and launching PyBioProx (Novice Python Users)
+
+**1**: The PyBioProx graphical user interface (GUI) requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
+of Python for this although more light-weight distributions of Python can also be [installed](https://www.python.org/downloads/). If you choose to not use the Anaconda installation, ensure that Python is added to the [PATH](https://datatofish.com/add-python-to-windows-path/) and that a version of Python that is bundled with PIP (i.e. Python 3.4 or newer) is selected. 
+
+**2** If using Anaconda, locate and open 'Anaconda Prompt'. You will see something similar to the image below where `(base) C:\Users\jdeed>` is replaced with your username/location. Else, open Command Prompt. 
 ![](images/blank-prompt.png)
 
-**4**: Navigate to the PyBioProx folder using the `cd` command. This can be done in windows by typing `cd` followed by a space, followed by the address of the PyBioProx folder (dragging the PyBioProx folder into Anaconda Prompt will automatically copy the folders address into Anaconda Prompt) and executing (enter).
-![](images/cdpybioprox-prompt.png)
->>The command line should now read with the location of the folder                                                                                                
-![](images/nowin-pybioprox-prompt.png)
+**3** Type the following `pip install pybioprox[gui]` and press `Enter`. This will download the PyBioProx module alongside its GUI 
+and all of the necessary additional python modules that PyBioProx requires to function. You may have to confirm that you wish 
+to download these packages by pressing `y` followed by `Enter`. 
 
-**5**: Type and execute the following command `pip install -r requirements.txt --user`. This will download the necessary packages that 
-PyBioProx requires to function
-![](images/pipinstall-prompt.png)
+You should see the following message `Successfully installed PyBioProx(current version number)`
 
-**6**: Launch the PyBioProx GUI using the following command `python pybioprox_gui.py`
-![](images/run-gui-prompt.png)
->>The following GUI will launch
+The GUI can then be launched by typing `pybioprox_gui` follwed by `Enter`. The following window should appear:
 
 ![](images/pybioproxgui.png)
 
-Once the GUI has been installed, it can be launched again by navigating to the PyBioProx folder in Anaconda Prompt (step 4) and 
-launching the GUI (step 6). 
 
-# GUI tutorial
 
-We have provided two images from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/), located within the
-PyBioProx master download folder under the subfolder name 'Test Images'. CBS provides images with known (ground-truth) levels of 
+# Getting started (GUI)
+
+We have provided two images sourced from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/) that can be 
+downloaded by clicking this link. CBS provides images with known (ground-truth) levels of 
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 (CBS001RBM__0_percent_colocalisation_.tif) and 90 % (CBS0010RBM__90_percent_colocalisation_.tif). Below is a follow-along tutorial using these images. 
 
 **1**: Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
