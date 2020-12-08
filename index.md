@@ -22,36 +22,28 @@ the Hausdorff Distance, the mean PD measurement represents the PD<sub>mean</sub>
 
 # Installing and launching PyBioProx (Experienced Python Users)
 
-Both the PyBioProx python module and GUI are distributed on [PyPI](https://pypi.org/project/pybioprox/).
+- Both the PyBioProx python module and GUI are distributed on [PyPI](https://pypi.org/project/pybioprox/).
 
-To install the Python module, you can use pip as follows: 
+- To install the Python module, you can use pip as follows: 
 
 `pip install pybioprox` 
 
-If you wish to install the optional graphical user interface (GUI) script, this may 
+- If you wish to install the optional graphical user interface (GUI) script, this may 
 be done by specifying the `gui` optional extra:
 
 `pip install pybioprox[gui]`
 
-Once installed, the module can be invoked from the command line using: 
+- Once installed, the module can be invoked from the command line using: `python -m pybioprox <path_to_folder>`, to run the analysis on all data files at the location `path_to_folder` 
 
-`python -m pybioprox <path_to_folder>
-
-to run the analysis on all data files at the location `path_to_folder` 
-
-If you have installed the GUI component or already have the required gui libraries, then you can 
-also run 
-
-`pybioprox_gui`
-
-directly from the command line. 
+- If you have installed the GUI component or already have the required gui libraries, then you can 
+also run `pybioprox_gui` directly from the command line. 
 
 # Installing and launching PyBioProx (Novice Python Users)
 
-**1**: The PyBioProx graphical user interface (GUI) requires Python to be installed on your computer. We reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
-of Python for this although more light-weight distributions of Python can also be [installed](https://www.python.org/downloads/). If you choose to not use the Anaconda installation, ensure that Python is added to the [PATH](https://datatofish.com/add-python-to-windows-path/) and that a version of Python that is bundled with PIP (i.e. Python 3.4 or newer) is selected. 
+**1**: The PyBioProx graphical user interface (GUI) requires Python to be installed on your computer. For ease of installation, we reccomend using the [Anaconda](https://www.anaconda.com/products/individual) distribution
+of Python. However more light-weight distributions of Python can also be [installed](https://www.python.org/downloads/). If you choose to not use the Anaconda installation, ensure that Python is added to the [PATH](https://datatofish.com/add-python-to-windows-path/) and that a version of Python that is bundled with PIP (i.e. Python 3.4 or newer) is selected. 
 
-**2** If using Anaconda, locate and open 'Anaconda Prompt'. You will see something similar to the image below where `(base) C:\Users\jdeed>` is replaced with your username/location. Else, open Command Prompt. 
+**2** If using Anaconda, locate and open 'Anaconda Prompt'. You will see something similar to the image below where `(base) C:\Users\jdeed>` is replaced with your username/location. Else, open 'Command Prompt' and launch Python by typing `Python` followed by `Enter`. 
 ![](images/blank-prompt.png)
 
 **3** Type the following `pip install pybioprox[gui]` and press `Enter`. This will download the PyBioProx module alongside its GUI 
@@ -67,7 +59,7 @@ The GUI can then be launched by typing `pybioprox_gui` follwed by `Enter`. The f
 # Getting started guide (GUI)
 
 We have provided two images sourced from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/) that can be 
-downloaded by clicking this ![link](images/cbs-images.zip) to follow along with this guide. CBS provides images with known (ground-truth) levels of 
+downloaded by clicking this [link](images/cbs-images.zip) to follow along with this guide. CBS provides images with known (ground-truth) levels of 
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 (CBS001RBM__0_percent_colocalisation_.tif) and 90 % (CBS0010RBM__90_percent_colocalisation_.tif). Below is a follow-along tutorial using these images. 
 
 **1**: Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
