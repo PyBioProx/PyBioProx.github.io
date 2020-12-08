@@ -1,7 +1,7 @@
 * TOC
 {:toc}
 
-# An Introduction to PyBioProx
+# PyBioProx Intro
 
 PyBioProx is a simple tool built in Python that analyses the relative proximity of fluorescent biomarkers in 2D or 3D microscopy images. 
 For example, to analyse whether the distance between fluorescently labelled organelles or proteins (e.g. the distance
@@ -59,7 +59,7 @@ The GUI can then be launched by typing `pybioprox_gui` follwed by `Enter`. The f
 # Getting started guide (GUI)
 
 We have provided two images sourced from the [Colocalisation Benchmark Source (CBS)](https://www.colocalization-benchmark.com/) that can be 
-downloaded by clicking this [link](images/cbs-images.zip) to follow along with this guide. CBS provides images with known (ground-truth) levels of 
+downloaded by clicking this [link][1] to follow along with this guide. CBS provides images with known (ground-truth) levels of 
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 (CBS001RBM__0_percent_colocalisation_.tif) and 90 % (CBS0010RBM__90_percent_colocalisation_.tif). Below is a follow-along tutorial using these images. 
 
 **1**: Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
@@ -158,8 +158,10 @@ average proximity of red objects to blue objects in each image. Using the parame
 
 - If small regions of 'noise' are being erroneously identified as objects by PyBioProx, filtering operations such as a  [gaussian filter](https://petebankhead.gitbooks.io/imagej-intro/content/chapters/filters/filters.html) may help to 'smooth out' this noise. A gaussian filter with a 3px kernal can be applied in PyBioProx. This is currently the only preprocessing operation offered in PyBioProx, other filtering operations must be applied to images prior to analysis in PyBioProx. 
 
-- If object detection is not descrete enough, i.e. the objects detected appear to be larger than they *should* be, then preprocessing operations such as an [unsharp mask](https://imagej.nih.gov/ij/developer/api/ij/plugin/filter/UnsharpMask.html#:~:text=Unsharp%20masking%20subtracts%20a%20blurred,and%20thus%20sharpens%20the%20image) (employed in our [preprint](link)), or a [top-hat filter](https://imagej.net/MorphoLibJ), can be employed to enhance the most salient features of the image. 
+- If object detection is not descrete enough, i.e. the objects detected appear to be larger than they *should* be, then preprocessing operations such as an [unsharp mask](https://imagej.nih.gov/ij/developer/api/ij/plugin/filter/UnsharpMask.html#:~:text=Unsharp%20masking%20subtracts%20a%20blurred,and%20thus%20sharpens%20the%20image), or a [top-hat filter](https://imagej.net/MorphoLibJ), can be employed to enhance the most salient features of the image. 
 
+
+[1]:{{pybioprox.github.io}}/images/cbs-images.zip
 
  
 
