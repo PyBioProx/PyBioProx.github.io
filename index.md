@@ -62,9 +62,9 @@ We have provided two images sourced from the [Colocalisation Benchmark Source (C
 downloaded by clicking this [link][1] to follow along with this guide. CBS provides images with known (ground-truth) levels of 
 colcalistion, we have included two images from CBS dataset 2 with ground-truth colocalisation values of 0 (CBS001RBM__0_percent_colocalisation_.tif) and 90 % (CBS0010RBM__90_percent_colocalisation_.tif). Below is a follow-along tutorial using these images. 
 
-**1**: Open up the PyBioProx GUI by navigating to the PyBioProx folder and launching the GUI (as described[here](#installing-the-gui)).
+**1**: Launch the PyBioProx GUI
 
-**2**: Select the 'Test Images' folder as the input folder 
+**2**: Select the (unzipped) 'CBS Images' folder as the input. 
 
 **3**: Select an output folder where you want the results to be saved.
 
@@ -74,7 +74,7 @@ using the drop down menus.
 
 **5**: PyBioProx currently only provides a limited number of preprocessing operations. A gaussian filter
 (sigma 3) can be performed on images if required by selecting from the 'Filtering' dropdown menu. If any other preprocessing
-is required, this should be performed in ImageJ before loading the images into the PyBioProx GUI. The CBS 
+is required, this should be performed (e.g. in Python or ImageJ) before loading the images into the PyBioProx GUI. The CBS 
 test images do not require preprocessing, so leave the 'Filtering' parameter blank. 
 
 **6**: These sample images have not previously been binarised. Therefore, a thresholding algorithm 
@@ -129,14 +129,55 @@ average proximity of red objects to blue objects in each image. Using the parame
   - The average red object in the 0 % CBS image has a PD<sub>mean</sub> proximity to blue objects of 3.56 pixels.
   - The average red object in the 90 % CBS image has a PD<sub>mean</sub> proximity to blue objects of 0.64 pixels. 
 
+# Getting started guide (Extensible Python Module)
 
-# Installing the Python Module
+- PyBioProx can be launched directly from the command line using the following command: 
 
-**JEREMY TO CHECK THIS** The PyBioProx python module is distrubuted on PyPI and can therefore be installed using the following commmands: `python pip install pybioprox` (command line), or `conda install pybioprox` (anaconda prompt). 
+`python -m pybioprox <path_to_folder>`, to run the analysis on all data files at the location `path_to_folder` 
 
-# Using the PyBioProx Python Module
+- If however, you wish to use PyBioProx within a Python script (and to have control over the parameters of PyBioProx
+without using the GUI), then you must import the `main` module from PyBioProx as follows: 
 
-**JEREMY TO WRITE THIS**
+`import pybioprox`
+
+`from pybioprox import main`
+
+- PyBioProx analysis can then be used with the main.main() function:
+
+`main.main(filepath, output_folder, channel1_index, channel2_index, filter_method, threshold_method, distance_analyser, scales, units)`
+
+_Parameters_
+
+__filepath : str__
+Location of folder containing .tif files
+
+__output_folder : str__:
+Location of output for mask images and .csv files containing measurements
+
+__channel1_index : int__:
+Channel to be measured from (default = `0`)
+
+__channel2_index : int__: 
+Channel to be measured to (default = `1`)
+
+__filter_method : str__: 
+Preprocessing method (the only method currently supported is `'gaussian (sigma 3px)'`) (default = `'none'`)
+
+__threshold_method : str__:
+Currently available thresholding methods are `'otsu'` or `'li'`, default = `'none'`
+
+__distance_analyser : str__:
+Method of analysis, not changeable `'edge-to-edge'`.
+
+__scales : tuple__:
+Size of pixels/voxels `(XY distance, Z distance)`, default = `(0.08,0.75)`
+
+__units : tuple__:
+Units of measurement, default = `('um','um')`
+
+__max_num_objects int__:
+The largest number of objects that can be detected before the image
+is aborted, default = `10000`
 
 # Image requirements
 
