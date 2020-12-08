@@ -7,10 +7,9 @@ PyBioProx is a simple tool built in Python that analyses the relative proximity 
 For example, to analyse whether the distance between fluorescently labelled organelles or proteins (e.g. the distance
 between mitochondria and the nucleus) changes according to experimental parameters. PyBioProx generates perimeter distance (PD) measurments (Figure 1).
 A PD measurement is the shortest distance between a perimeter pixel of an object in one fluorescent channel (e.g. Channel 1) to the nearest fluorescent signal 
-in another channel (e.g Channel 2). The mean of these measurements (PD<sub>mean</sub>) describes the proximity of the object in channel 1
+in another channel (e.g Channel 2). As described in our [preprint](), the mean of these measurements (PD<sub>mean</sub>) describes the proximity of the object in channel 1
 to the fluorescent signal in channel 2. Taking the maximum (Hausdorff Distance) 
-and the minimum (PD<sub>min</sub>) PD measurement *can* also provide useful information, 
-however, the PD<sub>mean</sub> measurement performed most effectively in our [tests](url) and therefore is our recommended statistic.
+and the minimum (PD<sub>min</sub>) PD measurement *can* also provide useful information however their use is discouraged for reasons discussed [here]().
 
 PyBioProx is provided as an extensible Python module or as a GUI that can be run from the command line. 
 
